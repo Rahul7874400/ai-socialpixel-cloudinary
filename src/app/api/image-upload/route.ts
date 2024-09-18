@@ -5,7 +5,7 @@ import { auth } from '@clerk/nextjs/server';
 
 // Configuration
 cloudinary.config({ 
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
+    cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME, 
     api_key: process.env.CLOUDINARY_API_KEY, 
     api_secret: process.env.CLOUDINARY_API_SECERT
 });
@@ -32,8 +32,8 @@ export async function POST(request:NextRequest){
             return NextResponse.json({Error:"file not found"},{status:404})
         }
 
-        const byte = file.arrayBuffer()
-        const buffer = Buffer.from("byte") 
+        const byte = await file.arrayBuffer()
+        const buffer = Buffer.from(byte) 
 
         const result = await new Promise<cloudinaryUploadResult>(
             (resolve,reject)=>{

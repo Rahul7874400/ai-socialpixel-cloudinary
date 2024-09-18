@@ -79,7 +79,7 @@ export default function page() {
       link.click();
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
-      document.body.removeChild(link);
+      //document.body.removeChild(link);
     })
   }
 
