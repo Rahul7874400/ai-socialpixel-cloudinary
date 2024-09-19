@@ -9,7 +9,7 @@ export async function GET(request:NextRequest){
         const video  = await prisma.video.findMany({
             orderBy : {createdAt : "desc"}
         })
-
+        
         return NextResponse.json(video)
     } catch (error) {
         console.log("Error int fetching the video",error)

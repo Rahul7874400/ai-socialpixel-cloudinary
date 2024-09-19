@@ -8,7 +8,7 @@ const prisma = new PrismaClient()
 
 // Configuration
 cloudinary.config({ 
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
+    cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME, 
     api_key: process.env.CLOUDINARY_API_KEY, 
     api_secret: process.env.CLOUDINARY_API_SECERT
 });
@@ -30,7 +30,7 @@ export async function POST(request:NextRequest){
         return NextResponse.json({error : "Unauthorized User"},{status : 404})
         }
 
-        if(!process.env.CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY ||!process.env.CLOUDINARY_API_SECERT){
+        if(!process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY ||!process.env.CLOUDINARY_API_SECERT){
             return NextResponse.json({Error : "Cloudinary Credintial not fount"},{status:404})
         }
 

@@ -33,13 +33,10 @@ export default function page() {
         try {
             const response = await axios.post("/api/video-upload", formData)
             .catch(function(error){
-                console.log("Failed in video upload",error.response)
+                console.log("Failed in video uploaddddd",error)
                 throw new Error("Failed in video upload")
             })
             // check for 200 response
-            if(!response.status){
-                throw new Error("Failed in video upload")
-            }
             router.push("/")
         } catch (error) {
             console.log(error)
